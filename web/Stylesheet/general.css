@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22 Jun, 2017, 8:57:03 AM
+    Author     : vijay_ravi
+*/
+/* HEADER and FOOTER */
+#logo1,#logo2{
+    width:120px;
+    height:120px;
+    margin-bottom: 10px;
+    margin-top: 10px;    
+}
+main{
+    padding-bottom:50px;
+}
+#foot{
+    width: 100%;
+    padding: 0px;
+    margin:0px;
+}
+/* HEADER and Footer MOBILE */
+@media only screen and (max-width: 500px) {
+    #logo1,#logo2{
+        display:none;
+    }
+    #head,#headsub1,#headsub2{
+        font-size: 14px;
+        font-weight: normal;
+    }
+    #headsub1,#headsub2{
+        font-size: 10px;
+    }
+}
+#retdiv{
+    padding-left: 20px;
+    border-right: 1px solid black;
+}
+#left{
+	float:left;
+	width:450px;        
+}
+#right{
+	padding-left: 10px;	
+}
+
+.navt{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+.nav-items{
+	float:left;
+	height:40px;
+	width:24.5%;
+	background-color:red;
+	opacity:1;
+	line-height:40px;
+	text-align:center;
+	margin-right:2px;
+}
+.nav-items a{
+	text-decoration:none;
+	color:white;
+	display:block;
+}
+.nav-items a:hover{
+	background-color:orange;	
+}
+.nav-dd, .dropdown{
+	margin-top:1px;	
+}
+.nav-items .dropdown{
+	width:100%;
+	display:none;
+}
+
+.nav-items:hover .dropdown {
+	display:block;
+}
+
+

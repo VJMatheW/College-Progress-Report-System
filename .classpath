@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="build/generated/src"/>
+	<classpathentry kind="src" path="src/java"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/classes/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/classes/poi-3.16.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/classes/poi-ooxml-3.16.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/classes/poi-ooxml-schemas-3.16.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/classes/xmlbeans-5.3.0-rc1.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/poi-ooxml-3.16.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/poi-ooxml-schemas-3.16.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/xmlbeans-5.3.0-rc1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="build/generated/classes"/>
+</classpath>
