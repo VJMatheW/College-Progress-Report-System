@@ -120,11 +120,11 @@ public class PrepareEmail extends HttpServlet {
                         + "<tr><th style=\"padding:5px;text-align:center;\" >"+thour+"</th><th style=\"padding:5px;text-align:center;\" >"+ahour+"</th><th style=\"padding:5px;text-align:center;\" >"+(thour-ahour)+"</th><th style=\"padding:5px;text-align:center;\" >"+percentage+"%</th></tr>"
                         + "</table>"
                         + "<h4><b>Note : </b>This is an auto generated Email.For correction Contact Class-Coordinator</h4>"
-                        + "<b>Do not reply.</b></div>";
+                        + "<b>Please do acknowledge this email by replying your comments to us.</b></div>";
                 
                 EmailBean t = new EmailBean();
                 t.setTo(mail);
-                t.setSubject("(Do-not-reply)PROGRESS REPORT");
+                t.setSubject(name+"-PROGRESS REPORT- SRM VEC");
                 t.setMessage(message);
                 
                 z.add(t);
