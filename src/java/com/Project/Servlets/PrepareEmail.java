@@ -36,7 +36,7 @@ import javax.servlet.http.HttpSession;
 public class PrepareEmail extends HttpServlet {
 
     String batch,section,regulation,sem,type,dept,aday,amonth,ayear;
-    public HashMap<String,String> subFF = new HashMap<String,String>();
+    private HashMap<String,String> subFF = new HashMap<String,String>();
     
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -60,8 +60,8 @@ public class PrepareEmail extends HttpServlet {
        
         try{
             subjectCode = Components.fetchSemSubject(dept, regulation, sem);
-                                                                                                                  
-            rs = Components.getMessageData(sem, dept, batch, section, type, subjectCode);
+            // on getMessageData - true( for email ) & false ( for message )
+            rs = Components.getMessageData(true,sem, dept, batch, section, type, subjectCode);
             ResultSetMetaData rsmt = rs.getMetaData();
             int k = rsmt.getColumnCount();            
             int thour,ahour,percentage,noOfSubject = subjectCode.size();
@@ -100,7 +100,7 @@ public class PrepareEmail extends HttpServlet {
                     subMarks[j] = "<tr><td style=\"padding:5px;text-align:center;\" >"+temp.toUpperCase()+"</td><td style=\"padding:5px;\" >"+subFF.get(temp)+"</td><td style=\"padding:5px;text-align:center;\" >"+isabsent(mark)+"</td><td style=\"padding:5px;text-align:center;\" >"+result(mark)+"</td></tr>";
                 }
                 System.out.println("rollno "+rollno+" name "+name+" mail "+mail+" mobile "+mobile+" thour "+thour+" ahour "+ahour+" percentage "+percentage+" adate "+adate);
-                message = "<div style=\"\" >"
+                message = "<div style=\"background-color: #ecfdeb !important;\" >"
                         + "<div style=\"text-align:center;\" >"
                         + "<h3 style=\"margin-bottom:0px;\" ><b>VALLIAMMAI ENGINEERING COLLEGE</b></h3>"
                         + "<div style=\"margin-bottom:5px;\" >(  A member of SRM group  )</div>"
@@ -124,7 +124,7 @@ public class PrepareEmail extends HttpServlet {
                 
                 EmailBean t = new EmailBean();
                 t.setTo(mail);
-                t.setSubject(name+"-PROGRESS REPORT- SRM VEC");
+                t.setSubject(name+" - PROGRESS REPORT - SRM VEC");
                 t.setMessage(message);
                 
                 z.add(t);
@@ -148,14 +148,14 @@ public class PrepareEmail extends HttpServlet {
         }
     }
     
-    private static String isabsent(int n){
+    public static String isabsent(int n){
         if(n != -1){
             return ""+n;
         }
         return "";
     }
     
-    private static String result(int m){
+    public static String result(int m){
         String result = "";
         if(m>= 50){
             result = "PASS";
@@ -204,7 +204,7 @@ public class PrepareEmail extends HttpServlet {
             
         }catch(Exception e){
             System.out.println("Exception in PrepareMail doPost : "+e);
-            response.sendRedirect("./Html/session_exp.html");
+            response.sendRedirect("/fileupload/Html/session_exp.html");
         }
         
     }

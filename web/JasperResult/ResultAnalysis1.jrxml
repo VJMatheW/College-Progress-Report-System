@@ -1283,11 +1283,11 @@
 			</textField>
 			<image>
 				<reportElement x="695" y="7" width="72" height="72" uuid="8780484c-eeb4-46d7-bd30-f383df37095c"/>
-				<imageExpression><![CDATA["C:\\Users\\Admin\\Documents\\NetBeansProjects\\fileupload\\web\\res\\logo2.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Vijay\\Documents\\NetBeansProjects\\fileupload\\web\\res\\logo2.jpg"]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="30" y="6" width="72" height="72" uuid="7a72dc08-f8cf-4834-93b1-a3a1a7a8939b"/>
-				<imageExpression><![CDATA["C:\\Users\\Admin\\Documents\\NetBeansProjects\\fileupload\\web\\res\\logo1.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Vijay\\Documents\\NetBeansProjects\\fileupload\\web\\res\\logo1.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="531" y="146" width="40" height="20" uuid="0fc5a68a-4289-42bb-8789-4916bfcd0fd3"/>

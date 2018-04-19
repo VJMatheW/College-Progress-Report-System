@@ -10,11 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/fileupload/Stylesheet/bootstrap/bootstrap.min.css">    
         <link type="text/css" rel="stylesheet" href="/fileupload/Stylesheet/general.css">
         <script src="/fileupload/Html/section.js"></script>
-        <title>JSP Page</title>
+        <title>Email</title>
         <style type="text/css" >
             body{
                 background-color: #ecfdeb !important;
@@ -33,7 +33,7 @@
             } 
         %>
         <h2><b>Text Message</b><hr style="border-color: black;"/></h2>
-        <form class="form-horizontal" action="../upload" method="post">    
+        <form class="form-horizontal" action="../SMS" method="post">    
             
             <input type="hidden" name="dept" id="dept" value="<%=dept %>">
             <div class="form-group">
@@ -81,6 +81,11 @@
                     </select>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-4" >
+                    <input class="btn btn-sm btn-success" type="submit" value="Send SMS" />
+                </div>
+            </div> 
         </form>
     </body>
 </html>

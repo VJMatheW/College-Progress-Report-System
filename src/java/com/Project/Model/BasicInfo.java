@@ -22,6 +22,10 @@ public class BasicInfo {
     public static String username = "";
     public static String password = "";
     public static String storageLocation = "";
+    public static String httpAPIURL = "";
+    public static String httpAPIUserName = "";
+    public static String httpAPIPassword = "";
+    public static String httpAPISenderId = "";
     public static String sqlTblKeyword = "create table if not exists tbl";
     
     

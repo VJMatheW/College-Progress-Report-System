@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProgressReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="656cccec-c118-4b38-9ccc-1ee86f931e1b">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.771561000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="35"/>
+	<property name="ireport.y" value="672"/>
 	<parameter name="deptnameff" class="java.lang.String"/>
 	<parameter name="subname1" class="java.lang.String"/>
 	<parameter name="subname2" class="java.lang.String"/>
@@ -91,7 +91,7 @@
 			</staticText>
 			<image>
 				<reportElement x="7" y="7" width="125" height="66" uuid="f03678a8-6479-4509-a008-5f4b93d5ccb8"/>
-				<imageExpression><![CDATA["C:\\Users\\Admin\\Documents\\NetBeansProjects\\fileupload\\web\\res\\logo1.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Vijay\\Documents\\NetBeansProjects\\fileupload\\web\\res\\logo1.png"]]></imageExpression>
 			</image>
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="50" width="555" height="19" uuid="49d12305-4ed2-4eca-9919-df88216cee56">
@@ -109,7 +109,7 @@
 			</staticText>
 			<image>
 				<reportElement x="460" y="7" width="72" height="72" uuid="0dd2fb9e-d176-4a34-91c1-f82c96925c9f"/>
-				<imageExpression><![CDATA["C:\\Users\\Admin\\Documents\\NetBeansProjects\\fileupload\\web\\res\\logo2.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Vijay\\Documents\\NetBeansProjects\\fileupload\\web\\res\\logo2.png"]]></imageExpression>
 			</image>
 		</band>
 	</columnHeader>
@@ -903,7 +903,7 @@
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{dept}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{deptfycc}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="568" width="555" height="14" uuid="fe400573-971b-40ef-893e-c0b2d64311b1">
@@ -944,7 +944,7 @@
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{dept}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{deptfycc}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="631" width="142" height="14" uuid="86165edf-f121-4f30-9c50-5336fa0e03ac">

@@ -162,7 +162,7 @@ public class Retrive extends HttpServlet {
         }  catch(NullPointerException nul){    
             System.out.println(" in side catch of expire session "+nul);
             if(dept==null){
-            response.sendRedirect("./Html/session_exp.html");}
+                response.sendRedirect("/fileupload/Html/session_exp.html");}
         }catch (Exception ex) {
             Logger.getLogger(Retrive.class.getName()).log(Level.SEVERE, null, ex);
         }

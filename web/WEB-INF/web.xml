@@ -108,6 +108,10 @@
         <servlet-name>UploadRegNo</servlet-name>
         <servlet-class>com.Project.Servlets.UploadRegNo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SMS</servlet-name>
+        <servlet-class>com.Project.Servlets.SMS</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>upload</servlet-name>
         <url-pattern>/upload</url-pattern>
@@ -212,15 +216,21 @@
         <servlet-name>UploadRegNo</servlet-name>
         <url-pattern>/UploadRegNo</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SMS</servlet-name>
+        <url-pattern>/SMS</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <error-page> 
+    <!-- Custome error page
+    <error-page>
         <error-code>404</error-code>
         <location>/Html/404.html</location>
-    </error-page>
+    </error-page> 
+    !-->
     <!--  Filter example
     <filter>
         <filter-name>JspFilter</filter-name>

@@ -1,7 +1,7 @@
 
 
 var xmlhttp = xmlhttprequest();
-var ip = "172.16.5.8:8080";
+var ip = "localhost";
 
 function xmlhttprequest(){
     var http;
@@ -30,7 +30,7 @@ function move(){
             
             // for fetching and viewing the summary of MAIL Sent 
             if(xmlhttp.readyState === 0 || xmlhttp.readyState === 4){
-                xmlhttp.open("GET","http://"+ip+"/fileupload/EmailConfirm?decision=listSentItems",true);
+                xmlhttp.open("GET","https://"+ip+"/fileupload/EmailConfirm?decision=listSentItems",true);
                 xmlhttp.onreadystatechange = function(){
                     if(this.status == 200){
                         response = xmlhttp.responseText;                       
@@ -43,7 +43,7 @@ function move(){
         }else{
             //alert("inside else");
             if(xmlhttp.readyState === 0 || xmlhttp.readyState === 4){
-                xmlhttp.open("GET","http://"+ip+"/fileupload/EmailConfirm?decision=progress",true);
+                xmlhttp.open("GET","https://"+ip+"/fileupload/EmailConfirm?decision=progress",true);
                 xmlhttp.onreadystatechange = function(){
                     if(this.status == 200){
                         response = xmlhttp.responseText;
@@ -75,8 +75,8 @@ function getElectiveNo(){
     if (dept != "na"){
       
         if (xmlhttp.readyState === 0 || xmlhttp.readyState === 4) {
-            //alert("url = http://"+ip+"/fileupload/NoOfElective?batch="+batch+"&dept="+dept+"&regulation="+reg+"&sem="+sem);
-            xmlhttp.open("GET","http://"+ip+"/fileupload/NoOfElective?batch="+batch+"&dept="+dept+"&regulation="+reg+"&sem="+sem,true);
+            //alert("url = https://"+ip+"/fileupload/NoOfElective?batch="+batch+"&dept="+dept+"&regulation="+reg+"&sem="+sem);
+            xmlhttp.open("GET","https://"+ip+"/fileupload/NoOfElective?batch="+batch+"&dept="+dept+"&regulation="+reg+"&sem="+sem,true);
             xmlhttp.onreadystatechange = handleResponse;
             xmlhttp.send(null);
         }else{
@@ -134,10 +134,10 @@ function process(){
       
         if (xmlhttp.readyState === 0 || xmlhttp.readyState === 4) {
             //alert('dept :'+dept+' batch : '+batch);
-            //alert("http://192.168.1.100:8080/fileupload/SectionAjax?batch="+batch+"&dept="+dept);
-            //xmlhttp.open("GET","http://getname.ddns.net/fileupload/SectionAjax?batch="+batch+"&dept="+dept,true);
-            xmlhttp.open("GET","http://"+ip+"/fileupload/SectionAjax?batch="+batch+"&dept="+dept,true);
-            //xmlhttp.open("GET","http://172.16.5.35/fileupload/SectionAjax?batch="+batch+"&dept="+dept,true); 
+            //alert("https://192.168.1.100:8080/fileupload/SectionAjax?batch="+batch+"&dept="+dept);
+            //xmlhttp.open("GET","https://getname.ddns.net/fileupload/SectionAjax?batch="+batch+"&dept="+dept,true);
+            xmlhttp.open("GET","https://"+ip+"/fileupload/SectionAjax?batch="+batch+"&dept="+dept,true);
+            //xmlhttp.open("GET","https://172.16.5.35/fileupload/SectionAjax?batch="+batch+"&dept="+dept,true); 
             xmlhttp.onreadystatechange = handleServerResponse;
             xmlhttp.send(null);
         }else{
@@ -335,8 +335,8 @@ function fectchSubject(){
     //console.log("dept : "+dept+" reg : "+regulation+" sem : "+sem);
     
     if (xmlhttp.readyState === 0 || xmlhttp.readyState === 4) {
-            //alert("url = http://"+ip+"/fileupload/NoOfElective?batch="+batch+"&dept="+dept+"&regulation="+reg+"&sem="+sem);
-            xmlhttp.open("GET","http://"+ip+"/fileupload/Result?dept="+dept+"&reg="+regulation+"&sem="+sem,true);
+            //alert("url = https://"+ip+"/fileupload/NoOfElective?batch="+batch+"&dept="+dept+"&regulation="+reg+"&sem="+sem);
+            xmlhttp.open("GET","https://"+ip+"/fileupload/Result?dept="+dept+"&reg="+regulation+"&sem="+sem,true);
             xmlhttp.onreadystatechange = function(){
                 if(this.status == 200){
                     var response = JSON.parse(xmlhttp.responseText);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.Project.listner;
 
 import com.Project.Model.BasicInfo;
@@ -36,8 +31,14 @@ public class MyListner implements ServletContextListener {
             BasicInfo.username = prop.getProperty("userName");
             BasicInfo.password = prop.getProperty("password");
             BasicInfo.storageLocation = prop.getProperty("storageLocation");
+            BasicInfo.httpAPIURL = prop.getProperty("httpAPIURL");
+            BasicInfo.httpAPIUserName = prop.getProperty("httpAPIUserName");
+            BasicInfo.httpAPIPassword = prop.getProperty("httpAPIPassword");
+            BasicInfo.httpAPISenderId = prop.getProperty("httpAPISenderId");
             fis.close();
-             
+            
+            System.out.println("Configuration \nAPI-URL : "+BasicInfo.httpAPIURL+" \nAPI-UserName : "+BasicInfo.httpAPIUserName+
+                    "\nAPI-Password : "+BasicInfo.httpAPIPassword+"\nAPI-SenderId : "+BasicInfo.httpAPISenderId);
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MyListner.class.getName()).log(Level.SEVERE, null, ex);

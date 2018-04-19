@@ -54,7 +54,7 @@ public class UploadSubjects extends HttpServlet {
                         br.readLine();
                         try{
                         while((line = br.readLine())!= null){
-                            //System.out.println("Line : "+line);
+                            System.out.println("Line : "+line);
                             String row[] = line.split(",");
                             row[0]="\""+row[0];
 //                            for(String a : row){

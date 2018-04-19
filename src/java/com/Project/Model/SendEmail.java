@@ -2,9 +2,11 @@
 package com.Project.Model;
 
 import com.Project.Email.EmailBean;
+import com.Project.POJO.ForSMS;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
@@ -17,6 +19,7 @@ import javax.mail.internet.MimeMessage;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.net.URLConnection;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -119,51 +122,48 @@ public class SendEmail {
         }
     }
     
-    public void sendMessage(String userName,String password,String message,String msisdn){
-        
-        try {
-            // Construct data
+    public static Map<String,String> prepareMessaage(ArrayList<ForSMS> list,String ptNo) throws UnsupportedEncodingException{
+        Map<String,String> finalLink = new HashMap<String,String>();
+        String url = BasicInfo.httpAPIURL.trim()+"?";        
+        for(ForSMS obj : list){
             String data = "";
-            /*
-             * Note the suggested encoding for certain parameters, notably
-             * the username, password and especially the message.  ISO-8859-1
-             * is essentially the character set that we use for message bodies,
-             * with a few exceptions for e.g. Greek characters.  For a full list,
-             * see:  http://developer.bulksms.com/eapi/submission/character-encoding/
-             */
-            data += "username=" + URLEncoder.encode(userName, "ISO-8859-1");
-            data += "&password=" + URLEncoder.encode(password, "ISO-8859-1");
-            data += "&message=" + URLEncoder.encode(message, "ISO-8859-1");
-            data += "&want_report=1";
-            data += "&msisdn="+msisdn;
-
-            // Send data
-            // Please see the FAQ regarding HTTPS (port 443) and HTTP (port 80/5567)
-            URL url = new URL("https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0");
-
-            URLConnection conn = url.openConnection();
-            conn.setDoOutput(true);
-            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-            wr.write(data);
-            wr.flush();
-
-            // Get the response
-            BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String line;
-            while ((line = rd.readLine()) != null) {
-                // Print the response output...
-                System.out.println(line);
-            }
-            wr.close();
-            rd.close();
-        } catch (Exception e) {
-            System.out.println("Error in send Message : "+e);
-            e.printStackTrace();
+            data += URLEncoder.encode("user", "UTF-8") + "=" + URLEncoder.encode(BasicInfo.httpAPIUserName.trim(), "UTF-8");
+            data += encode("password",BasicInfo.httpAPIPassword.trim());
+            data += encode("senderid",BasicInfo.httpAPISenderId.trim());
+            data += encode("channel","Trans");
+            data += encode("DCS","0");
+            data += encode("flashsms","0");
+            data += encode("number",correctMobileNo(obj.getParentMobile()));
+            data += encode("text",combineText(obj, ptNo));
+            data += encode("route","2");
+            
+            finalLink.put(obj.getRollno(), url+data);
         }
-
+        return finalLink;
     }
     
+    public static String encode(String key,String value) throws UnsupportedEncodingException{
+        return "&"+URLEncoder.encode(key, "UTF-8") + "=" + URLEncoder.encode(value, "UTF-8");
+    }
     
+    public static String combineText(ForSMS obj,String ptInfo) throws UnsupportedEncodingException{
+        ArrayList<String> marksList = obj.getMarksAndResult();        
+        String temp = ptInfo+"\n\n"+obj.getName()+"\n"+obj.getRollno()+"\n\n";
+        for(int i=0;i < marksList.size();i++){
+            temp += marksList.get(i)+"\n";
+        }
+        temp += "\nAttendance : "+obj.getAttendancePercentage();
+        System.out.println(temp);
+        return temp;
+    }
+    public static String correctMobileNo(String no){
+        if(no.length() == 12){
+            if(no.startsWith("91")){
+                return no;
+            }
+        }        
+        return "91"+no.trim();
+    }
 }
 
 

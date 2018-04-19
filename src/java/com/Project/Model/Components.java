@@ -99,6 +99,7 @@ public class Components {
         Connection con = null;
         try{
         con = BasicInfo.con();
+        System.out.println("Query Came to executeDDL : "+query);
         Statement st = con.createStatement();
         st.execute(query);
         System.out.println("execute DDL  Status : "+r);
@@ -498,7 +499,7 @@ public class Components {
         return code;        
     }
 
-    public static ResultSet getMessageData(String sem,String dept,String batch,String section,String type,ArrayList<String> subjectCode) throws Exception{
+    public static ResultSet getMessageData(Boolean emailOrMsg, String sem,String dept,String batch,String section,String type,ArrayList<String> subjectCode) throws Exception{
         String csub="";
         for(String s :subjectCode){
                 if(s.startsWith("elective")){                    
@@ -515,9 +516,15 @@ public class Components {
         String thour = "thoursem"+sem.trim();
         String ahour = "sem"+sem.trim();
         String attendance = "tbl"+dept+batch+type.replace("pt","term");
+        
         String sql = "select a.rollno,a.name,a.f_mail,a.f_mobile,d."+thour+",d."+ahour+",b."+subjectCode.toString().replace("[","").replace("]", "").replace(", ", ",b.")+
                     csub+" from "+info+" as a inner join "+pt+" as b on a.rollno = b.rollno inner join "+elective+" as c on b.rollno = c.rollno inner join "+attendance+" as d on c.rollno = d.rollno"+
-                    " where a.f_mail != \"NA\" and section="+section;
+                    " where ";
+        if(emailOrMsg){
+            sql += "a.f_mail != \"NA\" and section="+section;
+        }else{
+            sql += "a.f_mobile != \"NA\" and section="+section;
+        }
         ResultSet rs = executeSelectQuery(sql);       
         return rs;        
     }

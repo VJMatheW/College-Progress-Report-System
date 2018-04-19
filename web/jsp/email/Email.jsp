@@ -48,7 +48,7 @@
             String temp[] = decode.split(",");
             ArrayList<EmailBean> ten = Components.fetchObject(temp[1], temp[2], decode);        
         %>
-        <div id="" class="container-fluid .outer">
+        <div id="" class="container-fluid outer">
             <div id="" class="col-sm-3">
                 <form class="form-horizontal" action="../../EmailConfirm" method="post">
                     <input type="hidden" name="cipher" value="<%=str %>">

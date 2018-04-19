@@ -26,8 +26,8 @@ public class JspFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-         HttpServletRequest req = (HttpServletRequest) request;
-        req.getRequestDispatcher("./Html/404.html").forward(request,response);
+//         HttpServletRequest req = (HttpServletRequest) request;
+//        req.getRequestDispatcher("./Html/404.html").forward(request,response);
     }
 
     @Override
